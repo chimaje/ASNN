@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MdAdd } from "react-icons/md";
 import { useState } from "react";
-import NewUserForm from "@/components/GenerateToken/NewUserForm";
+import NewUserForm from "@/components/GenerateSecurity/NewUserForm";
 import UsersTable from "@/components/Users/UsersTable";
 const Users = () => {
   const [opened, setOpened] = useState(false);

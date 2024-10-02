@@ -15,8 +15,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { FaRegUser } from "react-icons/fa6";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { navItems } from "@/constants/navItems";
+import { PRIVATE_PATHS } from "@/constants/routes";
 
 const Navbar = ({ open }: { open: () => void }) => {
   const location = useLocation();
@@ -57,10 +58,15 @@ const Navbar = ({ open }: { open: () => void }) => {
                   <p className="font-semibold">Oyelola Adeboye</p>
                 </div>
               </DropdownMenuItem>
-              <DropdownMenuItem className="gap-4">
-                <MdLockOutline size={20} />
-                <span className="font-medium">Change Password</span>
-              </DropdownMenuItem>
+              <NavLink
+                to={PRIVATE_PATHS.CHANGE_PASSWORD}
+                className="cursor-pointer"
+              >
+                <DropdownMenuItem className="gap-4">
+                  <MdLockOutline size={20} />
+                  <span className="font-medium">Change Password</span>
+                </DropdownMenuItem>
+              </NavLink>
               <DropdownMenuSeparator />
 
               <DropdownMenuItem className="gap-4">

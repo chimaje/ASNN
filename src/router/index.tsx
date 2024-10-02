@@ -1,12 +1,13 @@
 import { PRIVATE_PATHS, PUBLIC_PATHS } from "@/constants/routes";
 import AuditTrail from "@/pages/AuditTrail";
 import AuthLayout from "@/pages/auth/AuthLayout";
+import ChangePassword from "@/pages/auth/ChangePassword";
 import ForgotPassword from "@/pages/auth/ForgotPassword";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 import ResetPassword from "@/pages/auth/ResetPassword";
 import Dashboard from "@/pages/Dashboard";
-import GeneratePin from "@/pages/GeneratePin";
+import GenerateSecurityNumber from "@/pages/GenerateSecurityNumber";
 import Reports from "@/pages/Reports";
 import SplashScreen from "@/pages/SplashScreen";
 import Users from "@/pages/Users";
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: PRIVATE_PATHS.GENERATE_PIN,
-        Component: GeneratePin,
+        Component: GenerateSecurityNumber,
       },
       {
         path: PRIVATE_PATHS.USERS,
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: PRIVATE_PATHS.AUDIT_TRAIL,
         Component: AuditTrail,
+      },
+      {
+        path: PRIVATE_PATHS.CHANGE_PASSWORD,
+        Component: ChangePassword,
       },
     ],
   },

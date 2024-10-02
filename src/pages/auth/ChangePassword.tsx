@@ -47,8 +47,8 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="flex justify-center items-start  pt-10 px-5 md:px-10 w-full min-h-[calc(100dvh-83px)] bg-gray-100">
-      <div className="w-[700px] bg-white p-8 rounded-lg shadow-md h-auto">
+    <div className="flex justify-center items-start  pt-10  md:px-10 w-full min-h-[calc(100dvh-83px)] bg-gray-100">
+      <div className="w-[600px] bg-white p-8 rounded-lg shadow-md h-auto">
         <p className="font-bold text-xl mb-4">Change Password</p>
         <p className="font-medium text-[#989898] mb-10">
           Fill information below to chnage password
