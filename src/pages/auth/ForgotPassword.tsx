@@ -27,7 +27,8 @@ const ForgotPassword = () => {
     <>
       <p className="font-bold text-4xl mb-4">Forgot Password?</p>
       <p className="font-medium text-[#989898] mb-10">
-        Securely manage and track your educational payments with ease.
+        Can’t remember your password? No worries, a rest link would be sent to
+        your registered email.
       </p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
