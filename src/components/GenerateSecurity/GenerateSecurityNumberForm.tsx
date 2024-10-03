@@ -8,6 +8,26 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Form } from "../ui/form";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
+
+const generateSchema = z.object({
+  email: z.string().email(),
+  name: z.string(),
+  address: z.string(),
+  brand: z.string(),
+  model: z.string(),
+  color: z.string(),
+  condition: z.string(),
+  kin: z.string(),
+  vin: z.string(),
+  plate: z.string(),
+  insurance: z.string(),
+  bvn: z.string().min(10),
+  nin: z.string().min(10),
+  phone: z.string().min(11),
+  file: z.array(z.instanceof(File)),
+});
+
+export type GenerateSecurityNumberSchema = z.infer<typeof generateSchema>;
 const GenerateSecurityNumberForm = ({
   hideCancel,
   setOpened,
@@ -17,23 +37,8 @@ const GenerateSecurityNumberForm = ({
 }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [active, setActive] = useState(0);
-  const generateSchema = z.object({
-    email: z.string().email(),
-    name: z.string(),
-    address: z.string(),
-    brand: z.string(),
-    model: z.string(),
-    color: z.string(),
-    condition: z.string(),
-    kin: z.string(),
-    vin: z.string(),
-    plate: z.string(),
-    insurance: z.string(),
-    bvn: z.string().min(10),
-    nin: z.string().min(10),
-    phone: z.string().min(11),
-  });
-  const form = useForm<z.infer<typeof generateSchema>>({
+
+  const form = useForm<GenerateSecurityNumberSchema>({
     resolver: zodResolver(generateSchema),
     defaultValues: {
       email: "",
@@ -51,10 +56,6 @@ const GenerateSecurityNumberForm = ({
           (res) => res && setActive((prev) => (prev !== 1 ? prev + 1 : prev))
         );
     } else {
-      if (setOpened) {
-        setOpened(false);
-      }
-
       setOpenDialog(true);
     }
   };

@@ -8,33 +8,20 @@ import {
 import { Input } from "@/components/ui/input";
 import { UseFormReturn } from "react-hook-form";
 import FileUpload from "../ui/file-upload";
+import { GenerateSecurityNumberSchema } from "./GenerateSecurityNumberForm";
 const StepOne = ({
   form,
 }: {
-  form: UseFormReturn<
-    {
-      email: string;
-      name: string;
-      address: string;
-      brand: string;
-      model: string;
-      color: string;
-      condition: string;
-      kin: string;
-      vin: string;
-      plate: string;
-      insurance: string;
-      bvn: string;
-      nin: string;
-      phone: string;
-    },
-    unknown,
-    undefined
-  >;
+  form: UseFormReturn<GenerateSecurityNumberSchema, unknown, undefined>;
 }) => {
   return (
     <>
-      <FileUpload />
+      <FileUpload
+        imagePreview={true}
+        maxFileSize={10 * 1024 * 1024}
+        onChange={(files) => form.setValue("file", files)}
+        defaultFiles={form.getValues().file}
+      />
       <FormField
         control={form.control}
         name="name"
@@ -108,7 +95,7 @@ const StepOne = ({
           </FormItem>
         )}
       />
-      <div className="block md:flex gap-5 space-y-4">
+      <div className="block md:flex gap-5 space-y-4 md:space-y-0">
         <div className="w-full md:w-1/2">
           <FormField
             control={form.control}
