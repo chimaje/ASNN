@@ -1,12 +1,12 @@
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import checkMark from "../../assets/svgs/check_mark.svg";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "./dialog";
+import { DialogDescription } from "@radix-ui/react-dialog";
 const SuccessModal = ({
   openDialog,
   setOpenDialog,
@@ -22,22 +22,24 @@ const SuccessModal = ({
 }) => {
   return (
     <div>
-      <AlertDialog open={openDialog} onOpenChange={setOpenDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader className="w-auto px-20">
-            <AlertDialogTitle className="text-center">
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="text-center">
+              {" "}
               {title || "Awesome!"}
-            </AlertDialogTitle>
-            <AlertDialogDescription className="text-center">
+            </DialogTitle>
+            <DialogDescription className="text-center">
+              {" "}
               {description}
-            </AlertDialogDescription>
+            </DialogDescription>
             <div className="flex justify-center">
               <img src={checkMark} alt="checkmark" className="w-28 h-28" />
             </div>
-          </AlertDialogHeader>
-          <AlertDialogFooter>{footer && footer}</AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+          </DialogHeader>
+          <DialogFooter>{footer && footer}</DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

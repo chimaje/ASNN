@@ -11,6 +11,8 @@ export const PRIVATE_PATHS={
     GENERATE_PIN:'/generate-pin',
     USERS:'/users',
     REPORTS:"/reports",
-    AUDIT_TRAIL:"/audit-trails"
+    AUDIT_TRAIL:"/audit-trails",
+   CHANGE_PASSWORD:"/change-password",
+
 
 }

@@ -3,6 +3,9 @@ export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      md: "1100px",
+    },
     extend: {
       backgroundImage: {
         "splash-pattern": "url('/src/assets/images/splash_bg.png')",
