@@ -39,19 +39,27 @@ const columns: ColumnDef<Activities>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "fullName",
-    header: "Full Name",
+    accessorKey: "firstName",
+    header: "First Name",
   },
   {
-    accessorKey: "matric",
-    header: "Matric No.",
+    accessorKey: "lastName",
+    header: "Last Name",
+  },
+  {
+    accessorKey: "carType",
+    header: "Car Type",
+  },
+  {
+    accessorKey: "carBrand",
+    header: "Car Brand",
   },
   {
     accessorKey: "email",
     header: "Email Address",
   },
   {
-    accessorKey: "phone",
+    accessorKey: "phoneNumber",
     header: "Phone Number",
   },
   {
@@ -66,18 +74,18 @@ const columns: ColumnDef<Activities>[] = [
             <DropdownMenuLabel className="font-semibold text-slate-500 mb-4">
               ACTION
             </DropdownMenuLabel>
-            <DropdownMenuItem className="gap-4">
-              <FaRegCircleStop size={20} />
-              <span className="font-medium">Edit</span>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
 
             <DropdownMenuItem className="gap-4">
               <MdOutlineEdit size={20} />
+              <span className="font-medium">Edit</span>
+            </DropdownMenuItem>
+
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem className="gap-4">
+              <FaRegCircleStop size={20} />
               <span className="font-medium">Deactivate</span>
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuSeparator />
           </DropdownMenuContent>
         </DropdownMenu>
       );

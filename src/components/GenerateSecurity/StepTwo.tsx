@@ -14,33 +14,15 @@ import {
 } from "@/components/ui/select";
 import { UseFormReturn } from "react-hook-form";
 import { Input } from "../ui/input";
+import { GenerateSecurityNumberSchema } from "./GenerateSecurityNumberForm";
 const StepTwo = ({
   form,
 }: {
-  form: UseFormReturn<
-    {
-      email: string;
-      name: string;
-      address: string;
-      brand: string;
-      model: string;
-      color: string;
-      condition: string;
-      kin: string;
-      vin: string;
-      plate: string;
-      insurance: string;
-      bvn: string;
-      nin: string;
-      phone: string;
-    },
-    unknown,
-    undefined
-  >;
+  form: UseFormReturn<GenerateSecurityNumberSchema, unknown, undefined>;
 }) => {
   return (
     <>
-      <div className="block md:flex gap-4 space-y-4">
+      <div className="block md:flex gap-4 space-y-4 md:space-y-0">
         <div className="w-full md:w-1/2">
           <FormField
             control={form.control}
@@ -158,7 +140,7 @@ const StepTwo = ({
           </FormItem>
         )}
       />
-      <div className="block md:flex gap-4 space-y-4">
+      <div className="block md:flex gap-4 space-y-4 md:space-y-0">
         <div className="w-full md:w-1/2">
           <FormField
             control={form.control}
@@ -185,29 +167,25 @@ const StepTwo = ({
             name="insurance"
             render={({ field }) => (
               <FormItem>
-                <div>
-                  <FormLabel>Insurance Status</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="select insurance status" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <p className="font-medium text-black text-sm p-4">
-                        INSURANCE STATUS
-                      </p>
-                      <SelectItem value="Fully Insured">
-                        Fully Insured
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                <FormLabel>Insurance Status</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="select insurance status" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <p className="font-medium text-black text-sm p-4">
+                      INSURANCE STATUS
+                    </p>
+                    <SelectItem value="Fully Insured">Fully Insured</SelectItem>
+                  </SelectContent>
+                </Select>
 
-                  <FormMessage />
-                </div>
+                <FormMessage />
               </FormItem>
             )}
           />

@@ -21,7 +21,7 @@ const cardItems = [
   {
     name: "89,935",
     description: "Registered Vehicles",
-    icon: <FaUserFriends size={23} color="#FFB415" />,
+    icon: <FaUserFriends color="#FFB415" className="w-[80%]" />,
     color: "#FFFF",
     rate: (
       <>
@@ -34,7 +34,7 @@ const cardItems = [
   {
     name: "23,283",
     description: "Active Registrations",
-    icon: <FaUserFriends size={23} color="#FFB415" />,
+    icon: <FaUserFriends className="w-[80%]" color="#FFB415" />,
     color: "#FFFF",
     rate: (
       <>
@@ -47,7 +47,7 @@ const cardItems = [
   {
     name: "46,827",
     description: "Expired Registration",
-    icon: <LuCheckCircle size={23} color="#FFB415" />,
+    icon: <LuCheckCircle className="w-[80%]" color="#FFB415" />,
     color: "#FFFF",
     rate: (
       <>
@@ -60,7 +60,7 @@ const cardItems = [
   {
     name: "124,854",
     description: "Security No Generated",
-    icon: <RiArrowGoForwardLine size={23} color="#FFB415" />,
+    icon: <RiArrowGoForwardLine className="w-[80%]" color="#FFB415" />,
     color: "#FFFF",
     rate: (
       <>
@@ -87,6 +87,7 @@ const Dashboard = () => {
               <MdAdd color="white" /> Register Vehicle
             </Button>
           </DialogTrigger>
+
           <DialogContent className="max-h-[90dvh] md:min-w-[600px] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Personal Information</DialogTitle>
@@ -99,7 +100,7 @@ const Dashboard = () => {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center w-full min-h-40 bg-white  border-2 border-grey-500  mt-10  mb-20 rounded-2xl ">
+      <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center w-full  bg-white  border-2 border-grey-500  mt-10  mb-20 rounded-2xl ">
         {cardItems.map((card, index) => (
           <Card key={card.name} card={card} hideBar={index === 0} />
         ))}

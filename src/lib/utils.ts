@@ -7,11 +7,11 @@ export function cn(...inputs: ClassValue[]) {
 
 export const getStatusColor=(status:string)=>{
   switch (status.toLowerCase()) {
-    case "successful":
+    case "active":
       
       return "green";
   
-    case "failed":
+    case "inactive":
       
       return "red";
     default:

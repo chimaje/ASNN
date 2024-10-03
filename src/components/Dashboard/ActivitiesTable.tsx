@@ -6,6 +6,8 @@ import { getStatusColor } from "@/lib/utils";
 import { activities, Activities } from "./colums";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { PRIVATE_PATHS } from "@/constants/routes";
 const columns: ColumnDef<Activities>[] = [
   {
     id: "select",
@@ -32,18 +34,26 @@ const columns: ColumnDef<Activities>[] = [
   {
     accessorKey: "fullName",
     header: "Full Name",
+    cell: ({ row }) => (
+      <p className="font-bold text-gray-500">{row.original.fullName}</p>
+    ),
   },
-  {
-    accessorKey: "matric",
-    header: "Matric No.",
-  },
-  {
-    accessorKey: "email",
-    header: "Email Address",
-  },
+
   {
     accessorKey: "phone",
     header: "Phone Number",
+  },
+  {
+    accessorKey: "brand",
+    header: "Car Type",
+  },
+  {
+    accessorKey: "model",
+    header: "Car Model",
+  },
+  {
+    accessorKey: "color",
+    header: "Color",
   },
   {
     accessorKey: "status",
@@ -72,9 +82,11 @@ const ActivitiesTable = ({ type }: { type: string }) => {
       <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between w-full mb-5 ">
         <p className="font-bold text-2xl">{type} Actions</p>
         {type === "Recent" && (
-          <Button className="gap-2 text-black bg-gray-200 hover:bg-gray-100">
-            View All <MdChevronRight />
-          </Button>
+          <NavLink to={PRIVATE_PATHS.REPORTS}>
+            <Button className="w-full md:w-auto gap-2 text-black bg-gray-200 hover:bg-gray-100">
+              View All <MdChevronRight />
+            </Button>
+          </NavLink>
         )}
       </div>
       <DataTable
