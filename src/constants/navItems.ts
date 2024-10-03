@@ -9,7 +9,7 @@ export const navItems=[
         path:PRIVATE_PATHS.DASHBOARD
     },
     {
-        name:"Generate Pin",
+        name:"Generate Security Number",
         icon:MdOutlineVpnKey,
        
 

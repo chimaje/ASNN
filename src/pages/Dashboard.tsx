@@ -1,12 +1,10 @@
 import Card from "@/components/Dashboard/Card";
 import { Button } from "@/components/ui/button";
 import { MdAdd } from "react-icons/md";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaTriangleExclamation } from "react-icons/fa6";
 import { FaUserFriends } from "react-icons/fa";
 import { LuCheckCircle } from "react-icons/lu";
 import { RiArrowGoForwardLine } from "react-icons/ri";
-import { GoArrowUpRight , GoArrowDownLeft } from "react-icons/go";
+import { GoArrowUpRight, GoArrowDownLeft } from "react-icons/go";
 import {
   Dialog,
   DialogContent,
@@ -25,48 +23,67 @@ const cardItems = [
     description: "Registered Vehicles",
     icon: <FaUserFriends size={23} color="#FFB415" />,
     color: "#FFFF",
-    rate :<GoArrowUpRight size={20} color="#34C759"/>,
-    progress:"+1.01% this week",
+    rate: (
+      <>
+        <GoArrowUpRight size={20} color="#34C759" />
+        <p>1.1</p>
+      </>
+    ),
+    progress: "+1.01% this week",
   },
   {
     name: "23,283",
     description: "Active Registrations",
     icon: <FaUserFriends size={23} color="#FFB415" />,
     color: "#FFFF",
-    rate :<GoArrowUpRight size={20}  color="#34C759"/>,
-    progress:"+0.49% this week",
+    rate: (
+      <>
+        <GoArrowUpRight size={20} color="#34C759" />
+        <p>1.1</p>
+      </>
+    ),
+    progress: "+0.49% this week",
   },
   {
     name: "46,827",
     description: "Expired Registration",
-    icon: <LuCheckCircle  size={23} color="#FFB415" />,
+    icon: <LuCheckCircle size={23} color="#FFB415" />,
     color: "#FFFF",
-    rate :<GoArrowDownLeft size={20} color="#FF3B30"/>,
-    progress:"-0.91% this week",
+    rate: (
+      <>
+        <GoArrowDownLeft size={20} color="#FF3B30" />
+        <p>3.1</p>
+      </>
+    ),
+    progress: "-0.91% this week",
   },
   {
     name: "124,854",
-    description: "Pin Generated",
+    description: "Security No Generated",
     icon: <RiArrowGoForwardLine size={23} color="#FFB415" />,
     color: "#FFFF",
-    rate :<GoArrowUpRight size={20}  color="#34C759"/>,
-    progress:"+1.51% this week",
+    rate: (
+      <>
+        <GoArrowUpRight size={20} color="#34C759" />
+        <p>1.1</p>
+      </>
+    ),
+    progress: "+1.51% this week",
   },
 ];
 const Dashboard = () => {
   const [opened, setOpened] = useState(false);
   return (
     <div className=" pt-10 px-5 md:px-10 w-full min-h-[calc(100dvh-83px)] bg-gray-100">
-      <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between w-full mb-5 ">
+      <div className="flex flex-col md:flex-row gap-4  md:items-center justify-between w-full mb-5 ">
         <div>
           <p className="text-3xl font-semibold">
             Welcome, <span className="text-primary">Boye</span>
           </p>
-          <p className="font-medium">Check out latest updates</p>
         </div>
         <Dialog open={opened} onOpenChange={setOpened}>
-          <DialogTrigger>
-            <Button className="gap-2">
+          <DialogTrigger asChild>
+            <Button className="gap-2 w-full md:w-auto">
               <MdAdd color="white" /> Register Vehicle
             </Button>
           </DialogTrigger>
@@ -82,9 +99,9 @@ const Dashboard = () => {
         </Dialog>
       </div>
 
-      <div className="flex flex-row h-40 bg-white  border-2 border-grey-500  mt-10  mb-20 rounded-2xl ">
-        {cardItems.map((card) => (
-          <Card key={card.name} card={card} />
+      <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center w-full min-h-40 bg-white  border-2 border-grey-500  mt-10  mb-20 rounded-2xl ">
+        {cardItems.map((card, index) => (
+          <Card key={card.name} card={card} hideBar={index === 0} />
         ))}
       </div>
 

@@ -1,5 +1,5 @@
 import ActivitiesTable from "@/components/Dashboard/ActivitiesTable";
-import Card from "@/components/Cards/Card";
+import Card from "@/components/Report/Card";
 import { FaTriangleExclamation } from "react-icons/fa6";
 const cardItems = [
   {
@@ -24,7 +24,7 @@ const cardItems = [
 const Reports = () => {
   return (
     <div className=" pt-10 px-5 md:px-10 w-full min-h-[calc(100dvh-83px)] bg-gray-100">
-      <div className="grid grid-cols-3 lg:grid-cols-3 mt-10 gap-8 mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-8 mb-20">
         {cardItems.map((card) => (
           <Card key={card.name} card={card} />
         ))}
