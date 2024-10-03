@@ -7,7 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { MdAdd } from "react-icons/md";
+import { MdAdd ,MdFilterList  } from "react-icons/md";
 import { useState } from "react";
 import NewUserForm from "@/components/GenerateSecurity/NewUserForm";
 import UsersTable from "@/components/Users/UsersTable";
@@ -20,22 +20,27 @@ const Users = () => {
         <div>
           <p className="text-3xl font-semibold">All Users</p>
         </div>
-        <Dialog open={opened} onOpenChange={setOpened}>
-          <DialogTrigger>
-            <Button className="gap-2">
-              <MdAdd color="white" /> Add User
+        <div className="flex gap-3">
+          <Button className="bg-gray-300 text-black gap-2">
+                Filter <MdFilterList size={15} color="black" /> 
             </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader className="mb-4">
-              <DialogTitle>Create Users</DialogTitle>
-              <DialogDescription>
-                Fill information below to send a user invite
-              </DialogDescription>
-            </DialogHeader>
-            <NewUserForm />
-          </DialogContent>
-        </Dialog>
+          <Dialog open={opened} onOpenChange={setOpened}>
+            <DialogTrigger>
+              <Button className="gap-2">
+                <MdAdd color="white" /> Add User
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader className="mb-4">
+                <DialogTitle>Create Users</DialogTitle>
+                <DialogDescription>
+                  Fill information below to send a user invite
+                </DialogDescription>
+              </DialogHeader>
+              <NewUserForm />
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       <UsersTable />
