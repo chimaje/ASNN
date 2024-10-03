@@ -70,7 +70,7 @@ const ActivitiesTable = ({ type }: { type: string }) => {
   return (
     <div>
       <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between w-full mb-5 ">
-        <p className="font-bold text-2xl">{type} Activities</p>
+        <p className="font-bold text-2xl">{type} Actions</p>
         {type === "Recent" && (
           <Button className="gap-2 text-black bg-gray-200 hover:bg-gray-100">
             View All <MdChevronRight />

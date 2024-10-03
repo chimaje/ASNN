@@ -12,14 +12,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MdKeyboardArrowDown, MdLockOutline, MdLogin } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { PRIVATE_PATHS } from "@/constants/routes";
 
 const Sidebar = ({ opened, close }: { opened: boolean; close: () => void }) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className={`w-full md:w-[323px] bg-sidebar-pattern bg-no-repeat bg-cover h-dvh overflow-y-auto pt-10 px-4 fixed top-0 left-0 z-20 ${
+      className={`w-full md:w-[323px] bg-black  h-dvh overflow-y-auto pt-10 px-4 fixed top-0 left-0 z-20 ${
         opened ? "block" : "hidden"
       } md:block`}
     >
@@ -38,7 +39,7 @@ const Sidebar = ({ opened, close }: { opened: boolean; close: () => void }) => {
           {navItems
             .filter((v) => !v.bottom)
             .map((item) => (
-              <SidebarItems nav={item} close={close} />
+              <SidebarItems nav={item} close={close} key={item.name} />
             ))}
         </div>
         <div>
@@ -46,6 +47,7 @@ const Sidebar = ({ opened, close }: { opened: boolean; close: () => void }) => {
             .filter((v) => v.bottom)
             .map((item) => (
               <SidebarItems
+                key={item.name}
                 nav={{
                   ...item,
                   customFn: () => {
@@ -77,10 +79,16 @@ const Sidebar = ({ opened, close }: { opened: boolean; close: () => void }) => {
                 <p className="font-semibold ">Oyelola Adeboye</p>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuItem className="gap-4">
-              <MdLockOutline size={20} />
-              <span className="font-medium">Change Password</span>
-            </DropdownMenuItem>
+            <NavLink
+              onClick={close}
+              to={PRIVATE_PATHS.CHANGE_PASSWORD}
+              className="cursor-pointer"
+            >
+              <DropdownMenuItem className="gap-4">
+                <MdLockOutline size={20} />
+                <span className="font-medium">Change Password</span>
+              </DropdownMenuItem>
+            </NavLink>
             <DropdownMenuSeparator />
 
             <DropdownMenuItem className="gap-4">

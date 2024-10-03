@@ -11,7 +11,6 @@ export default {
         "splash-pattern": "url('/src/assets/images/splash_bg.png')",
         "auth-pattern": "url('/src/assets/images/auth_bg.png')",
         "auth-pattern-dark": "url('/src/assets/images/auth_bg_dark.png')",
-        "sidebar-pattern": "url('/src/assets/images/sidebar_bg.png')",
       },
       borderRadius: {
         lg: "var(--radius)",

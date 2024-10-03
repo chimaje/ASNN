@@ -1,47 +1,39 @@
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu";
-// // import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu";
-// import { MdKeyboardArrowDown } from "react-icons/md";
 const Card = ({
   card,
+  hideBar = false,
 }: {
   card: {
     name: string;
     description: string;
     icon: JSX.Element;
     color: string;
-    rate:JSX.Element;
-    progress:string;
+    rate: JSX.Element;
+    progress: string;
   };
+  hideBar?: boolean;
 }) => {
   return (
-    <div className="w-full p-10 ">
-      <div className="flex   justify-between items-center mx-4">
-          <div className="relative flex items-center mx-4">
-          <div className="h-20 w-[2px] bg-gray-200"></div>
-          </div>
+    <div className="md:w-full py-8 px-4 flex ">
+      {!hideBar && (
+        <hr className="w-[1px] h-full border-none bg-gray-200 hidden md:block" />
+      )}
+      <div className="flex justify-between items-center mx-6">
         <div>
-          <div className="flex flex-row items-baseline justify-between">
-              <p className="font-semibold text-xl">{card.name}</p>
-              <div
-              className="w-12 h-12 rounded-full flex justify-center items-center "
+          <div className="flex flex-wrap  gap-2items-baseline justify-between">
+            <p className="font-semibold text-3xl">{card.name}</p>
+            <div
+              className="w-12 h-12 rounded-2xl flex justify-center items-center bg-white shadow-md "
               style={{ backgroundColor: card.color }}
             >
-                {card.icon}
+              {card.icon}
             </div>
           </div>
           <p>{card.description}</p>
-          <div className="flex flex-row">
+          <div className="flex flex-wrap items-center gap-3 mt-3 text-gray-400 ">
             {card.rate}
-          <p>{card.progress}</p>
+            <p>{card.progress}</p>
           </div>
         </div>
-        
       </div>
     </div>
   );
