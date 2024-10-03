@@ -19,7 +19,7 @@ const Sidebar = ({ opened, close }: { opened: boolean; close: () => void }) => {
 
   return (
     <div
-      className={`w-full md:w-[323px] bg-sidebar-pattern bg-no-repeat bg-cover h-dvh overflow-y-auto pt-10 px-4 fixed top-0 left-0 z-10 ${
+      className={`w-full md:w-[323px] bg-sidebar-pattern bg-no-repeat bg-cover h-dvh overflow-y-auto pt-10 px-4 fixed top-0 left-0 z-20 ${
         opened ? "block" : "hidden"
       } md:block`}
     >

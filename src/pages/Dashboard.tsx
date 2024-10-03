@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import GenerateTokenForm from "@/components/GenerateToken/GenerateTokenForm";
+import GenerateSecurityNumberForm from "@/components/GenerateSecurity/GenerateSecurityNumberForm";
 import { useState } from "react";
 import ActivitiesTable from "@/components/Dashboard/ActivitiesTable";
 
@@ -70,14 +70,14 @@ const Dashboard = () => {
               <MdAdd color="white" /> Register Vehicle
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="max-h-[90dvh] md:min-w-[600px] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Generate Token</DialogTitle>
+              <DialogTitle>Personal Information</DialogTitle>
               <DialogDescription>
-                Fill information below to generate token
+                Fill in your personal details.
               </DialogDescription>
             </DialogHeader>
-            <GenerateTokenForm />
+            <GenerateSecurityNumberForm setOpened={setOpened} />
           </DialogContent>
         </Dialog>
       </div>
