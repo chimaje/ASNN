@@ -76,7 +76,7 @@ const Navbar = ({ open }: { open: () => void }) => {
               <DropdownMenuSeparator />
               <DropdownMenuItem className="gap-4">
                 <MdLogin color="red" size={20} />
-                <span className="font-medium">Edit Profile</span>
+                <span className="font-medium">Logout</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
             </DropdownMenuContent>
