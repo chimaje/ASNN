@@ -1,62 +1,48 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu";
-import { MdKeyboardArrowDown } from "react-icons/md";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuSeparator,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
+// // import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu";
+// import { MdKeyboardArrowDown } from "react-icons/md";
 const Card = ({
   card,
 }: {
   card: {
     name: string;
-    value: string;
+    description: string;
     icon: JSX.Element;
     color: string;
+    rate:JSX.Element;
+    progress:string;
   };
 }) => {
   return (
-    <div className="bg-white w-full  shadow-sm rounded-lg p-4">
-      <div className="flex justify-between items-center">
+    <div className="w-full p-10 ">
+      <div className="flex   justify-between items-center mx-4">
+          <div className="relative flex items-center mx-4">
+          <div className="h-20 w-[2px] bg-gray-200"></div>
+          </div>
         <div>
-          <p className="font-semibold text-xl">{card.name}</p>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="border-none outline-none">
-              <div className="cursor-pointer flex gap-1 items-center h-full">
-                <p>This Month</p>
-                <MdKeyboardArrowDown size={18} />
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="min-w-80 p-4">
-              <DropdownMenuLabel className="font-semibold text-slate-500">
-                PERIOD
-              </DropdownMenuLabel>
-              <DropdownMenuItem className="mt-6">All</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Today</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>This Week</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>This Month</DropdownMenuItem>
-              <DropdownMenuSeparator />
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="flex flex-row items-baseline">
+              <p className="font-semibold text-xl">{card.name}</p>
+              <div
+              className="w-12 h-12 rounded-full flex justify-center items-center "
+              style={{ backgroundColor: card.color }}
+            >
+                {card.icon}
+            </div>
+          </div>
+          <p>{card.description}</p>
+          <div className="flex flex-row">
+            {card.rate}
+          <p>{card.progress}</p>
+          </div>
         </div>
-        <div
-          className="w-12 h-12 rounded-full flex justify-center items-center"
-          style={{ backgroundColor: card.color }}
-        >
-          {card.icon}
-        </div>
+        
       </div>
-      <hr
-        className="my-8 border-none h-[1px]"
-        style={{ backgroundColor: card.color }}
-      />
-
-      <p className="font-bold text-3xl mt-5">{card.value}</p>
     </div>
   );
 };

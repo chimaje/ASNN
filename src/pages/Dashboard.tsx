@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { MdAdd } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaTriangleExclamation } from "react-icons/fa6";
+import { FaUserFriends } from "react-icons/fa";
+import { LuCheckCircle } from "react-icons/lu";
+import { RiArrowGoForwardLine } from "react-icons/ri";
+import { GoArrowUpRight , GoArrowDownLeft } from "react-icons/go";
 import {
   Dialog,
   DialogContent,
@@ -17,22 +21,36 @@ import ActivitiesTable from "@/components/Dashboard/ActivitiesTable";
 
 const cardItems = [
   {
-    name: "Successful",
-    value: "1,005",
-    icon: <FaCheckCircle size={23} color="#35CDA5" />,
-    color: "#D8EFE9",
+    name: "89,935",
+    description: "Registered Vehicles",
+    icon: <FaUserFriends size={23} color="#FFB415" />,
+    color: "#FFFF",
+    rate :<GoArrowUpRight size={20} color="#34C759"/>,
+    progress:"+1.01% this week",
   },
   {
-    name: "Unsuccessful",
-    value: "2,000",
-    icon: <FaTriangleExclamation size={23} color="#CD4435" />,
-    color: "#EFD8D8",
+    name: "23,283",
+    description: "Active Registrations",
+    icon: <FaUserFriends size={23} color="#FFB415" />,
+    color: "#FFFF",
+    rate :<GoArrowUpRight size={20}  color="#34C759"/>,
+    progress:"+0.49% this week",
   },
   {
-    name: "Pin Generated",
-    value: "1,300",
-    icon: <FaTriangleExclamation size={23} color="#224191" />,
-    color: "#D8E6EF",
+    name: "46,827",
+    description: "Expired Registration",
+    icon: <LuCheckCircle  size={23} color="#FFB415" />,
+    color: "#FFFF",
+    rate :<GoArrowDownLeft size={20} color="#FF3B30"/>,
+    progress:"-0.91% this week",
+  },
+  {
+    name: "124,854",
+    description: "Pin Generated",
+    icon: <RiArrowGoForwardLine size={23} color="#FFB415" />,
+    color: "#FFFF",
+    rate :<GoArrowUpRight size={20}  color="#34C759"/>,
+    progress:"+1.51% this week",
   },
 ];
 const Dashboard = () => {
@@ -49,7 +67,7 @@ const Dashboard = () => {
         <Dialog open={opened} onOpenChange={setOpened}>
           <DialogTrigger>
             <Button className="gap-2">
-              <MdAdd color="white" /> Generate Token
+              <MdAdd color="white" /> Register Vehicle
             </Button>
           </DialogTrigger>
           <DialogContent>
@@ -64,7 +82,7 @@ const Dashboard = () => {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-8 mb-20">
+      <div className="flex flex-row h-40 bg-white  border-2 border-grey-500  mt-10  mb-20 rounded-2xl ">
         {cardItems.map((card) => (
           <Card key={card.name} card={card} />
         ))}
