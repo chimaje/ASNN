@@ -17,7 +17,7 @@ const StepOne = ({
   return (
     <>
       <FileUpload
-        imagePreview={true}
+        showPreview={true}
         maxFileSize={10 * 1024 * 1024}
         onChange={(files) => form.setValue("file", files)}
         defaultFiles={form.getValues().file}
