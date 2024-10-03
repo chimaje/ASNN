@@ -10,8 +10,8 @@ export type AuditTrail = {
   
 export const auditTrails:AuditTrail[]=[
     {
-      activity: "Transferred",
-      action: "Generate Pin",
+      activity: "Genrated",
+      action: "Generate Security Number",
       phone: "08099922344",
       email: "m@example.com",
     },

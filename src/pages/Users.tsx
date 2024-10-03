@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
-import { MdAdd ,MdFilterList  } from "react-icons/md";
+import { MdAdd, MdFilterList } from "react-icons/md";
 import { useState } from "react";
 import NewUserForm from "@/components/GenerateSecurity/NewUserForm";
 import UsersTable from "@/components/Users/UsersTable";
@@ -23,10 +23,10 @@ const Users = () => {
         </div>
         <div className="flex gap-3">
           <Button className="bg-gray-300 text-black gap-2">
-                Filter <MdFilterList size={15} color="black" /> 
-            </Button>
+            Filter <MdFilterList size={15} color="black" />
+          </Button>
           <Dialog open={opened} onOpenChange={setOpened}>
-            <DialogTrigger>
+            <DialogTrigger asChild>
               <Button className="gap-2">
                 <MdAdd color="white" /> Add User
               </Button>

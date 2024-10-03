@@ -6,14 +6,8 @@ import { BsThreeDots } from "react-icons/bs";
 import { Checkbox } from "../ui/checkbox";
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
-import { FaRegCircleStop } from "react-icons/fa6";
-import { MdOutlineEdit } from "react-icons/md";
 
 const columns: ColumnDef<AuditTrail>[] = [
   {
@@ -63,7 +57,7 @@ const columns: ColumnDef<AuditTrail>[] = [
           <DropdownMenuTrigger className="border-none outline-none">
             <BsThreeDots />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="p-4">
+          {/* <DropdownMenuContent className="p-4">
             <DropdownMenuLabel className="font-semibold text-slate-500 mb-4">
               ACTION
             </DropdownMenuLabel>
@@ -79,7 +73,7 @@ const columns: ColumnDef<AuditTrail>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuSeparator />
-          </DropdownMenuContent>
+          </DropdownMenuContent> */}
         </DropdownMenu>
       );
     },
