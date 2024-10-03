@@ -26,7 +26,7 @@ const Card = ({
           <div className="h-20 w-[2px] bg-gray-200"></div>
           </div>
         <div>
-          <div className="flex flex-row items-baseline">
+          <div className="flex flex-row items-baseline justify-between">
               <p className="font-semibold text-xl">{card.name}</p>
               <div
               className="w-12 h-12 rounded-full flex justify-center items-center "
