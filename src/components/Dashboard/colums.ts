@@ -15,7 +15,7 @@ export const activities:Activities[]=[
   {
     id: "1",
     fullName: "John Doe",
-    phone: "555-123-4567",
+    phone: "08012345678",
     brand: "Toyota",
     model: "Camry",
     color: "Blue",
@@ -24,7 +24,7 @@ export const activities:Activities[]=[
   {
     id: "2",
     fullName: "Jane Smith",
-    phone: "555-987-6543",
+    phone: "08098765432",
     brand: "Honda",
     model: "Civic",
     color: "Red",
@@ -33,7 +33,7 @@ export const activities:Activities[]=[
   {
     id: "3",
     fullName: "Michael Johnson",
-    phone: "555-456-7890",
+    phone: "08045678901",
     brand: "Ford",
     model: "Mustang",
     color: "Black",
@@ -42,7 +42,7 @@ export const activities:Activities[]=[
   {
     id: "4",
     fullName: "Emily Davis",
-    phone: "555-654-3210",
+    phone: "08065432109",
     brand: "BMW",
     model: "X5",
     color: "White",
@@ -51,7 +51,7 @@ export const activities:Activities[]=[
   {
     id: "5",
     fullName: "David Brown",
-    phone: "555-234-5678",
+    phone: "08023456789",
     brand: "Mercedes",
     model: "E-Class",
     color: "Silver",
@@ -60,7 +60,7 @@ export const activities:Activities[]=[
   {
     id: "6",
     fullName: "Olivia Wilson",
-    phone: "555-345-6789",
+    phone: "08034567890",
     brand: "Audi",
     model: "A4",
     color: "Grey",
@@ -69,7 +69,7 @@ export const activities:Activities[]=[
   {
     id: "7",
     fullName: "William Clark",
-    phone: "555-456-7891",
+    phone: "08045678912",
     brand: "Tesla",
     model: "Model S",
     color: "Red",
@@ -78,7 +78,7 @@ export const activities:Activities[]=[
   {
     id: "8",
     fullName: "Sophia Martinez",
-    phone: "555-567-8901",
+    phone: "08056789012",
     brand: "Chevrolet",
     model: "Malibu",
     color: "Blue",
@@ -87,7 +87,7 @@ export const activities:Activities[]=[
   {
     id: "9",
     fullName: "James Anderson",
-    phone: "555-678-9012",
+    phone: "08067890123",
     brand: "Nissan",
     model: "Altima",
     color: "Black",
@@ -96,7 +96,7 @@ export const activities:Activities[]=[
   {
     id: "10",
     fullName: "Isabella Garcia",
-    phone: "555-789-0123",
+    phone: "08078901234",
     brand: "Lexus",
     model: "RX",
     color: "White",
@@ -105,7 +105,7 @@ export const activities:Activities[]=[
   {
     id: "11",
     fullName: "Benjamin Taylor",
-    phone: "555-890-1234",
+    phone: "08089012345",
     brand: "Volkswagen",
     model: "Jetta",
     color: "Grey",
@@ -114,7 +114,7 @@ export const activities:Activities[]=[
   {
     id: "12",
     fullName: "Charlotte Lee",
-    phone: "555-901-2345",
+    phone: "08090123456",
     brand: "Hyundai",
     model: "Elantra",
     color: "Red",
@@ -123,7 +123,7 @@ export const activities:Activities[]=[
   {
     id: "13",
     fullName: "Daniel Harris",
-    phone: "555-012-3456",
+    phone: "08001234567",
     brand: "Kia",
     model: "Optima",
     color: "Blue",
@@ -132,10 +132,10 @@ export const activities:Activities[]=[
   {
     id: "14",
     fullName: "Mia White",
-    phone: "555-123-5678",
+    phone: "08012356789",
     brand: "Subaru",
     model: "Outback",
     color: "Green",
     status: "Inactive",
-  },
+  }
   ]

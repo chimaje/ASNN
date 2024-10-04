@@ -15,6 +15,7 @@ import {
 import { UseFormReturn } from "react-hook-form";
 import { Input } from "../ui/input";
 import { GenerateSecurityNumberSchema } from "./GenerateSecurityNumberForm";
+import { Textarea } from "../ui/textarea";
 const StepTwo = ({
   form,
 }: {
@@ -32,11 +33,16 @@ const StepTwo = ({
                 <div>
                   <FormLabel>Car Brand</FormLabel>
                   <Select
-                    onValueChange={field.onChange}
+                    onValueChange={(value) => {
+                      field.onChange(value);
+                      form.trigger("brand");
+                    }}
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger
+                        error={Boolean(form.formState.errors?.brand)}
+                      >
                         <SelectValue placeholder="select your car brand" />
                       </SelectTrigger>
                     </FormControl>
@@ -44,7 +50,19 @@ const StepTwo = ({
                       <p className="font-medium text-black text-sm p-4">
                         CAR BRAND
                       </p>
-                      <SelectItem value="Toyota">Toyota</SelectItem>
+                      {[
+                        "Toyota",
+                        "Honda",
+                        "Ford",
+                        "Tesla",
+                        "Audi",
+                        "Chevrolet",
+                        "Nissan",
+                        "Lexus",
+                        "Mercedes",
+                      ].map((item) => (
+                        <SelectItem value={item}>{item}</SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
 
@@ -63,11 +81,16 @@ const StepTwo = ({
                 <div>
                   <FormLabel>Car Model</FormLabel>
                   <Select
-                    onValueChange={field.onChange}
+                    onValueChange={(value) => {
+                      field.onChange(value);
+                      form.trigger("model");
+                    }}
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger
+                        error={Boolean(form.formState.errors?.model)}
+                      >
                         <SelectValue placeholder="select your car model" />
                       </SelectTrigger>
                     </FormControl>
@@ -75,7 +98,24 @@ const StepTwo = ({
                       <p className="font-medium text-black text-sm p-4">
                         CAR MODEL
                       </p>
-                      <SelectItem value="Model 1">Model 1</SelectItem>
+                      {[
+                        "Camry",
+                        "Civic",
+                        "Mustang",
+                        "X5",
+                        "E-Class",
+                        "A4",
+                        "Model S",
+                        "Malibu",
+                        "Altima",
+                        "RX",
+                        "Jetta",
+                        "Elantra",
+                        "Optima",
+                        "Outback",
+                      ].map((item) => (
+                        <SelectItem value={item}>{item}</SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
 
@@ -96,6 +136,7 @@ const StepTwo = ({
               <Input
                 placeholder="Enter color of your vehicle"
                 {...field}
+                onKeyUp={() => form.trigger("color")}
                 error={Boolean(form.formState.errors?.color)}
               />
             </FormControl>
@@ -111,8 +152,9 @@ const StepTwo = ({
           <FormItem>
             <FormLabel>Vehicle Condition</FormLabel>
             <FormControl>
-              <Input
+              <Textarea
                 placeholder="Describe vehicle condition"
+                onKeyUp={() => form.trigger("condition")}
                 {...field}
                 error={Boolean(form.formState.errors?.condition)}
               />
@@ -132,6 +174,7 @@ const StepTwo = ({
               <Input
                 placeholder="Enter your vin"
                 {...field}
+                onKeyUp={() => form.trigger("vin")}
                 error={Boolean(form.formState.errors?.vin)}
               />
             </FormControl>
@@ -151,6 +194,7 @@ const StepTwo = ({
                 <FormControl>
                   <Input
                     placeholder="Enter your plate number"
+                    onKeyUp={() => form.trigger("plate")}
                     {...field}
                     error={Boolean(form.formState.errors?.plate)}
                   />
@@ -169,11 +213,16 @@ const StepTwo = ({
               <FormItem>
                 <FormLabel>Insurance Status</FormLabel>
                 <Select
-                  onValueChange={field.onChange}
+                  onValueChange={(value) => {
+                    field.onChange(value);
+                    form.trigger("insurance");
+                  }}
                   defaultValue={field.value}
                 >
                   <FormControl>
-                    <SelectTrigger>
+                    <SelectTrigger
+                      error={Boolean(form.formState.errors?.insurance)}
+                    >
                       <SelectValue placeholder="select insurance status" />
                     </SelectTrigger>
                   </FormControl>
@@ -181,7 +230,15 @@ const StepTwo = ({
                     <p className="font-medium text-black text-sm p-4">
                       INSURANCE STATUS
                     </p>
-                    <SelectItem value="Fully Insured">Fully Insured</SelectItem>
+                    {[
+                      "Fully Insured",
+                      "Partially Insured",
+                      "Not Insured",
+                      "Pending Renewal",
+                      "Expired",
+                    ].map((item) => (
+                      <SelectItem value={item}>{item}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
 

@@ -9,20 +9,21 @@ import {
 import { DialogDescription } from "@radix-ui/react-dialog";
 const SuccessModal = ({
   openDialog,
-  setOpenDialog,
+
   footer,
   title,
   description,
+  close,
 }: {
   openDialog: boolean;
-  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;
   footer: React.ReactNode;
   description?: string;
   title?: string;
+  close: (_open: boolean) => void;
 }) => {
   return (
     <div>
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+      <Dialog open={openDialog} onOpenChange={(open) => close(open)}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle className="text-center">
