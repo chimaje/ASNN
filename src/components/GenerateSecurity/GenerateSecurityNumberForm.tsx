@@ -3,28 +3,30 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
-import SuccessModal from "../ui/success-modal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Form } from "../ui/form";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
+import StepThree from "./StepThree";
 
 const generateSchema = z.object({
   email: z.string().email(),
-  name: z.string(),
-  address: z.string(),
-  brand: z.string(),
-  model: z.string(),
-  color: z.string(),
-  condition: z.string(),
-  kin: z.string(),
-  vin: z.string(),
-  plate: z.string(),
-  insurance: z.string(),
-  bvn: z.string().min(10),
-  nin: z.string().min(10),
-  phone: z.string().min(11),
-  file: z.array(z.instanceof(File)),
+  name: z.string().min(2, { message: "Full name is required" }),
+  address: z.string().min(2, { message: "Address is required" }),
+  brand: z.string().min(2, { message: "Car Brand is required" }),
+  model: z.string().min(2, { message: "Car Model is required" }),
+  color: z.string().min(2, { message: "Car Color is required" }),
+  condition: z.string().min(2, { message: "Car Condition is required" }),
+  kin: z.string().min(2, { message: "Next of Kin is required" }),
+  vin: z.string().min(8, { message: "Enter Valid VIN" }),
+  plate: z.string().min(8, { message: "Enter Valid Plate Number" }),
+  insurance: z.string().min(2, { message: "Insurance Status is required" }),
+  bvn: z.string().min(10, { message: "Enter Valid BVN" }),
+  nin: z.string().min(10, { message: "Enter Valid NIN" }),
+  phone: z.string().min(11, { message: "Enter Valid Phone Number" }),
+  file: z
+    .array(z.instanceof(File), { message: "Drivers License is required" })
+    .min(1, { message: "Drivers License is required" }),
 });
 
 export type GenerateSecurityNumberSchema = z.infer<typeof generateSchema>;
@@ -35,7 +37,7 @@ const GenerateSecurityNumberForm = ({
   hideCancel?: boolean;
   setOpened?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [openDialog, setOpenDialog] = useState(false);
+  const [paymentDialog, setPaymentDialog] = useState(false);
   const [active, setActive] = useState(0);
 
   const form = useForm<GenerateSecurityNumberSchema>({
@@ -51,12 +53,31 @@ const GenerateSecurityNumberForm = ({
     e.preventDefault();
     if (active === 0) {
       form
-        .trigger(["name", "phone", "email", "address", "bvn", "nin", "kin"])
+        .trigger([
+          "name",
+          "phone",
+          "email",
+          "address",
+          "bvn",
+          "nin",
+          "kin",
+          "file",
+        ])
         .then(
-          (res) => res && setActive((prev) => (prev !== 1 ? prev + 1 : prev))
+          (res) => res && setActive((prev) => (prev !== 2 ? prev + 1 : prev))
         );
-    } else {
-      setOpenDialog(true);
+    } else if (active === 1) {
+      form
+        .trigger([
+          "brand",
+          "model",
+          "color",
+          "condition",
+          "vin",
+          "plate",
+          "insurance",
+        ])
+        .then((res) => res && setPaymentDialog(true));
     }
   };
   const back = () => {
@@ -86,6 +107,18 @@ const GenerateSecurityNumberForm = ({
         <form className="space-y-4">
           {active === 0 && <StepOne form={form} />}
           {active === 1 && <StepTwo form={form} />}
+
+          <StepThree
+            form={form}
+            opened={paymentDialog}
+            setOpened={setPaymentDialog}
+            closeForm={() => {
+              form.reset();
+              if (setOpened) setOpened(false);
+              setActive(0);
+            }}
+          />
+
           <div className="flex  gap-4">
             {!hideCancel && active === 0 && (
               <Button
@@ -117,20 +150,6 @@ const GenerateSecurityNumberForm = ({
           </div>
         </form>
       </Form>
-
-      <SuccessModal
-        footer={
-          <div className="w-full grid grid-cols-2 gap-5">
-            <Button variant="outline" size="lg">
-              Download
-            </Button>
-            <Button size="lg">Send As Email</Button>
-          </div>
-        }
-        openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
-        description="Your security number has been created"
-      />
     </div>
   );
 };
