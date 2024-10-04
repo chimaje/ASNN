@@ -14,7 +14,7 @@ const Card = ({
 }) => {
   return (
     <>
-      <div className="md:w-full py-6  flex ">
+      <div className="md:w-full py-6 flex">
         {!hideBar && (
           <hr className="w-[1px] h-full border-none bg-gray-200 hidden md:block" />
         )}
