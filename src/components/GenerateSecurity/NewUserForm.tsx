@@ -82,7 +82,8 @@ const NewUserForm = ({ hideCancel }: { hideCancel?: boolean }) => {
           </Button>
         }
         openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
+        close={(open) => {
+          setOpenDialog(open);}}
         description="You have successfully sent a user invite"
         title="Invitation Sent"
       />

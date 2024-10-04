@@ -9,7 +9,6 @@ import {
 import { DialogDescription } from "@radix-ui/react-dialog";
 const SuccessModal = ({
   openDialog,
-
   footer,
   title,
   description,

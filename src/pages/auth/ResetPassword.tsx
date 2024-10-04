@@ -104,7 +104,8 @@ const ResetPassword = () => {
           </NavLink>
         }
         openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
+        close={(open) => {
+          setOpenDialog(open);}}
         description="Your password has been created"
       />
     </>
